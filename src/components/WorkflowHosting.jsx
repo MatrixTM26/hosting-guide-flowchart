@@ -2,143 +2,81 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import "../styles/WorkflowHosting.css";
 
 const PlatformData = [
-    {
-        Icon: "fa-solid fa-triangle",
-        Name: "Vercel",
-        Description: "Deploy otomatis dari GitHub",
-        Recommended: true
-    },
-    {
-        Icon: "fa-solid fa-leaf",
-        Name: "Netlify",
-        Description: "Static site hosting cepat",
-        Recommended: false
-    },
-    {
-        Icon: "fa-brands fa-github",
-        Name: "GitHub Pages",
-        Description: "Gratis untuk repo publik",
-        Recommended: false
-    },
-    {
-        Icon: "fa-solid fa-cloud",
-        Name: "Cloudflare Pages",
-        Description: "CDN global & gratis",
-        Recommended: false
-    }
+    { Icon: "fa-solid fa-triangle", Name: "Vercel", Description: "Deploy otomatis dari GitHub", Recommended: true },
+    { Icon: "fa-solid fa-leaf", Name: "Netlify", Description: "Static site hosting cepat", Recommended: false },
+    { Icon: "fa-brands fa-github", Name: "GitHub Pages", Description: "Gratis untuk repo publik", Recommended: false },
+    { Icon: "fa-solid fa-cloud", Name: "Cloudflare Pages", Description: "CDN global & gratis", Recommended: false }
+];
+
+const StackData = [
+    { Label: "Framework", Value: "React / Next.js", Icon: "fa-brands fa-react" },
+    { Label: "Hosting", Value: "Vercel", Icon: "fa-solid fa-triangle" },
+    { Label: "Domain", Value: "Namecheap", Icon: "fa-solid fa-globe" },
+    { Label: "Version Control", Value: "GitHub", Icon: "fa-brands fa-github" },
+    { Label: "CI/CD", Value: "GitHub Actions", Icon: "fa-solid fa-gears" }
 ];
 
 const WorkflowStepData = [
     {
-        Number: "01",
-        Icon: "fa-brands fa-git-alt",
-        Title: "Inisiasi Repository Git",
+        Number: "01", Icon: "fa-brands fa-git-alt", Title: "Inisiasi Repository Git",
         Description: "Buat repository baru di GitHub dan inisialisasi Git di folder project lokal. Tambahkan .gitignore yang sesuai dengan teknologi yang digunakan.",
         Image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&q=70&auto=format",
         Code: "git init && git add . && git commit -m 'first commit'",
-        Checklist: [
-            "Buat repository di GitHub",
-            "Inisialisasi Git lokal",
-            "Setup .gitignore",
-            "Push initial commit"
-        ],
+        Checklist: ["Buat repository di GitHub", "Inisialisasi Git lokal", "Setup .gitignore", "Push initial commit"],
         Active: true
     },
     {
-        Number: "02",
-        Icon: "fa-solid fa-server",
-        Title: "Pilih Platform Hosting",
+        Number: "02", Icon: "fa-solid fa-server", Title: "Pilih Platform Hosting",
         Description: "Untuk website statis atau React/Vue/Next.js, Vercel adalah pilihan terbaik karena integrasi GitHub yang sempurna dan deployment otomatis.",
         Image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=70&auto=format",
         Code: "npm install -g vercel",
-        Checklist: [
-            "Evaluasi kebutuhan project",
-            "Daftar akun di platform pilihan",
-            "Verifikasi akun dengan GitHub",
-            "Eksplorasi dashboard platform"
-        ],
+        Checklist: ["Evaluasi kebutuhan project", "Daftar akun di platform pilihan", "Verifikasi akun dengan GitHub", "Eksplorasi dashboard platform"],
         Active: true
     },
     {
-        Number: "03",
-        Icon: "fa-solid fa-globe",
-        Title: "Daftarkan Domain",
+        Number: "03", Icon: "fa-solid fa-globe", Title: "Daftarkan Domain",
         Description: "Beli domain di registrar seperti Namecheap, GoDaddy, atau Niagahoster. Pilih TLD yang sesuai (.com, .id, .dev) dan aktifkan WHOIS protection.",
         Image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=600&q=70&auto=format",
         Code: "whois example.com",
-        Checklist: [
-            "Cek ketersediaan domain",
-            "Beli domain pilihan",
-            "Aktifkan WHOIS privacy",
-            "Catat nameserver default"
-        ],
+        Checklist: ["Cek ketersediaan domain", "Beli domain pilihan", "Aktifkan WHOIS privacy", "Catat nameserver default"],
         Active: true
     },
     {
-        Number: "04",
-        Icon: "fa-solid fa-network-wired",
-        Title: "Konfigurasi DNS",
+        Number: "04", Icon: "fa-solid fa-network-wired", Title: "Konfigurasi DNS",
         Description: "Arahkan domain ke hosting dengan menambahkan DNS record. Untuk Vercel, tambahkan CNAME record atau A record yang mengarah ke server Vercel.",
         Image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=70&auto=format",
         Code: "CNAME www cname.vercel-dns.com",
-        Checklist: [
-            "Login ke panel domain registrar",
-            "Tambahkan A record ke IP hosting",
-            "Tambahkan CNAME untuk www",
-            "Tunggu propagasi DNS (24-48 jam)"
-        ],
+        Checklist: ["Login ke panel domain registrar", "Tambahkan A record ke IP hosting", "Tambahkan CNAME untuk www", "Tunggu propagasi DNS (24-48 jam)"],
         Active: true
     },
     {
-        Number: "05",
-        Icon: "fa-brands fa-github",
-        Title: "Connect Repository ke Hosting",
+        Number: "05", Icon: "fa-brands fa-github", Title: "Connect Repository ke Hosting",
         Description: "Hubungkan repository GitHub ke platform hosting. Setiap push ke branch main akan otomatis memicu proses build dan deployment baru.",
         Image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=70&auto=format",
         Code: "vercel --prod",
-        Checklist: [
-            "Import project dari GitHub",
-            "Pilih branch untuk production",
-            "Set environment variables",
-            "Aktifkan auto-deploy"
-        ],
+        Checklist: ["Import project dari GitHub", "Pilih branch untuk production", "Set environment variables", "Aktifkan auto-deploy"],
         Active: false
     },
     {
-        Number: "06",
-        Icon: "fa-solid fa-sliders",
-        Title: "Konfigurasi Build",
+        Number: "06", Icon: "fa-solid fa-sliders", Title: "Konfigurasi Build",
         Description: "Atur build command, output directory, dan environment variables di dashboard hosting. Pastikan framework preset sesuai dengan teknologi yang dipakai.",
         Image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=70&auto=format",
         Code: "npm run build → dist/",
-        Checklist: [
-            "Set build command (npm run build)",
-            "Set output directory (dist atau build)",
-            "Tambahkan environment variables",
-            "Test build preview"
-        ],
+        Checklist: ["Set build command (npm run build)", "Set output directory (dist atau build)", "Tambahkan environment variables", "Test build preview"],
         Active: false
     },
     {
-        Number: "07",
-        Icon: "fa-solid fa-rocket",
-        Title: "Deploy & Go Live!",
+        Number: "07", Icon: "fa-solid fa-rocket", Title: "Deploy & Go Live!",
         Description: "Lakukan deployment final. Verifikasi SSL certificate aktif, test semua halaman, dan pantau performance lewat Lighthouse atau Google Search Console.",
         Image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=70&auto=format",
         Code: "git push origin main → auto deploy",
-        Checklist: [
-            "Trigger deployment production",
-            "Verifikasi SSL certificate (HTTPS)",
-            "Test semua halaman & fitur",
-            "Submit sitemap ke Google Search Console"
-        ],
+        Checklist: ["Trigger deployment production", "Verifikasi SSL certificate (HTTPS)", "Test semua halaman & fitur", "Submit sitemap ke Google Search Console"],
         Active: false
     }
 ];
 
-function WorkflowStep({ Data, Animate, IsLast }) {
+function WorkflowStep({ Data, IsLast }) {
     const Reveal = useScrollReveal({ threshold: 0.1 });
-
     return (
         <div
             className={`workflow-step${Data.Active ? " active" : ""} reveal${Reveal.visible ? " visible" : ""}`}
@@ -165,7 +103,7 @@ function WorkflowStep({ Data, Animate, IsLast }) {
                         loading="lazy"
                         decoding="async"
                         width="600"
-                        height="160"
+                        height="150"
                     />
                     <div className="workflow-step-inner">
                         <p className="workflow-step-description">{Data.Description}</p>
@@ -196,10 +134,7 @@ export default function WorkflowHosting() {
             <div className="workflow-bg" data-parallax="med" aria-hidden="true" />
             <div className="workflow-orb" data-parallax="deep" aria-hidden="true" />
             <div className="container">
-                <div
-                    className={`reveal${Header.visible ? " visible" : ""}`}
-                    ref={Header.ref}
-                >
+                <div className={`reveal${Header.visible ? " visible" : ""}`} ref={Header.ref}>
                     <p className="section-label">Fase 2 — Deployment</p>
                     <h2 className="section-title">Workflow Hosting & Deploy</h2>
                     <p className="section-description">
@@ -214,9 +149,7 @@ export default function WorkflowHosting() {
                         ref={Sticky.ref}
                     >
                         <div>
-                            <p style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: "10px" }}>
-                                Platform Rekomendasi
-                            </p>
+                            <p className="workflow-sidebar-label">Platform Rekomendasi</p>
                             <div className="workflow-platform-cards">
                                 {PlatformData.map(Platform => (
                                     <div
@@ -239,23 +172,15 @@ export default function WorkflowHosting() {
                             </div>
                         </div>
 
-                        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: "var(--radius)", padding: "1.2rem", display: "flex", flexDirection: "column", gap: "0.8rem" }}>
-                            <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)" }}>
-                                Stack yang Direkomendasikan
-                            </p>
-                            {[
-                                { Label: "Framework", Value: "React / Next.js", Icon: "fa-brands fa-react" },
-                                { Label: "Hosting", Value: "Vercel", Icon: "fa-solid fa-triangle" },
-                                { Label: "Domain", Value: "Namecheap", Icon: "fa-solid fa-globe" },
-                                { Label: "Version Control", Value: "GitHub", Icon: "fa-brands fa-github" },
-                                { Label: "CI/CD", Value: "GitHub Actions", Icon: "fa-solid fa-gears" }
-                            ].map(Row => (
-                                <div key={Row.Label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "0.78rem" }}>
-                                    <span style={{ color: "var(--text-3)", display: "flex", alignItems: "center", gap: "6px" }}>
-                                        <i className={Row.Icon} style={{ color: "var(--accent)", fontSize: "0.7rem" }} aria-hidden="true" />
+                        <div className="workflow-stack-card">
+                            <p className="workflow-stack-label-header">Stack yang Direkomendasikan</p>
+                            {StackData.map(Row => (
+                                <div key={Row.Label} className="workflow-stack-row">
+                                    <span className="workflow-stack-key">
+                                        <i className={Row.Icon} aria-hidden="true" />
                                         {Row.Label}
                                     </span>
-                                    <span style={{ color: "var(--text-1)", fontWeight: 600 }}>{Row.Value}</span>
+                                    <span className="workflow-stack-val">{Row.Value}</span>
                                 </div>
                             ))}
                         </div>

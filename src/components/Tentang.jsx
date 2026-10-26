@@ -34,9 +34,9 @@ const TechTagItems = [
 ];
 
 const PhaseItems = [
-    { Name: "Fase 1 — Development", Steps: "8 Langkah", Color: "#22d3ee" },
-    { Name: "Fase 2 — Deployment", Steps: "7 Langkah", Color: "#818cf8" },
-    { Name: "Simulasi Interaktif", Steps: "8 Steps", Color: "#22c55e" }
+    { Name: "Fase 1 — Development", Steps: "8 Langkah", Color: "#a3e635" },
+    { Name: "Fase 2 — Deployment", Steps: "7 Langkah", Color: "#484f58" },
+    { Name: "Simulasi Interaktif", Steps: "8 Steps", Color: "#7d8590" }
 ];
 
 export default function Tentang() {
