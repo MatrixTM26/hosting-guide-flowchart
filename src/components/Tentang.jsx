@@ -137,24 +137,6 @@ export default function Tentang() {
                             ))}
                         </div>
 
-                        <div style={{ background: "linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%)", border: "1px solid var(--accent-border)", borderRadius: "var(--radius)", padding: "1.4rem", display: "flex", flexDirection: "column", gap: "0.8rem" }}>
-                            <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)" }}>
-                                <i className="fa-solid fa-star" style={{ marginRight: "6px" }} aria-hidden="true" />
-                                Kenapa WebFlow?
-                            </p>
-                            {[
-                                "Panduan end-to-end dari nol",
-                                "Langkah konkret yang bisa langsung dipraktikkan",
-                                "Visual modern dan mudah dipahami",
-                                "Free & open untuk semua",
-                                "Selalu diupdate dengan best practices terbaru"
-                            ].map(Item => (
-                                <div key={Item} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.8rem", color: "var(--text-2)" }}>
-                                    <i className="fa-solid fa-check" style={{ color: "var(--accent)", fontSize: "0.7rem", marginTop: "3px", flexShrink: 0 }} aria-hidden="true" />
-                                    <span>{Item}</span>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
 
@@ -164,16 +146,19 @@ export default function Tentang() {
                 >
                     <div className="tentang-creator-inner">
                         <div className="tentang-creator-avatar">
-                            <span>TM</span>
+                            <img
+                                src="https://github.com/MatrixTM26.png"
+                                alt="Teuku Maulana"
+                                className="tentang-creator-avatar-img"
+                                loading="lazy"
+                                width="72"
+                                height="72"
+                            />
                             <div className="tentang-creator-avatar-ring" />
                         </div>
                         <div className="tentang-creator-info">
                             <p className="tentang-creator-label">Dibuat Oleh</p>
                             <h3 className="tentang-creator-name">Teuku Maulana</h3>
-                            <p className="tentang-creator-role">
-                                <i className="fa-solid fa-shield-halved" aria-hidden="true" />
-                                Cyber Security · Red Teaming · DISKOMINFO Aceh Selatan
-                            </p>
                             <div className="tentang-creator-links">
                                 <a
                                     href="https://github.com/MatrixTM26"
@@ -191,30 +176,7 @@ export default function Tentang() {
                                     <i className="fa-solid fa-envelope" aria-hidden="true" />
                                     anonymous.matrixtm26.dev@gmail.com
                                 </a>
-                                <a
-                                    href="https://matrixtm26-dev.vercel.app"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="tentang-creator-link"
-                                >
-                                    <i className="fa-solid fa-globe" aria-hidden="true" />
-                                    matrixtm26-dev.vercel.app
-                                </a>
                             </div>
-                        </div>
-                        <div className="tentang-creator-badges">
-                            <span className="tentang-creator-badge">
-                                <i className="fa-solid fa-certificate" aria-hidden="true" />
-                                CEH Certified
-                            </span>
-                            <span className="tentang-creator-badge">
-                                <i className="fa-solid fa-shield" aria-hidden="true" />
-                                OPSWAT ICIP
-                            </span>
-                            <span className="tentang-creator-badge">
-                                <i className="fa-brands fa-cisco" aria-hidden="true" />
-                                Cisco NetSec
-                            </span>
                         </div>
                     </div>
                 </div>

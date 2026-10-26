@@ -7,8 +7,8 @@
     position: absolute;
     inset: -120px;
     background:
-        radial-gradient(ellipse 60% 65% at 80% 50%, rgba(34, 211, 238, 0.06) 0%, transparent 68%),
-        radial-gradient(ellipse 40% 45% at 10% 20%, rgba(34, 211, 238, 0.025) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 65% at 80% 50%, rgba(34, 211, 238, 0.05) 0%, transparent 68%),
+        radial-gradient(ellipse 40% 45% at 10% 20%, rgba(34, 211, 238, 0.02) 0%, transparent 60%);
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -22,12 +22,12 @@
     height: 55vw;
     max-width: 650px;
     max-height: 650px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.04) 0%, transparent 65%);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(34, 211, 238, 0.05) 0%, transparent 65%);
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
-    filter: blur(4px);
+    filter: blur(40px);
 }
 
 .alur-header {
@@ -111,16 +111,16 @@
 }
 
 .step-card {
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    transition: border-color 0.25s, background 0.25s, transform 0.3s var(--ease-spring);
     cursor: default;
 }
 
@@ -128,16 +128,16 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: var(--radius);
-    background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.3s;
 }
 
 .step-card:hover {
     border-color: var(--accent-border);
-    background: var(--bg-raised);
-    transform: translateY(-3px);
+    background: var(--flat-card-hover);
+    transform: translateY(-4px);
 }
 .step-card:hover::before {
     opacity: 1;
@@ -145,7 +145,7 @@
 
 .step-card.highlight {
     border-color: var(--accent-border);
-    background: var(--bg-raised);
+    background: var(--flat-card-hover);
 }
 .step-card.highlight::before {
     opacity: 1;

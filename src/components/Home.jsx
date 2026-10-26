@@ -26,11 +26,6 @@ export default function Home() {
                         className={`home-left reveal-left${Left.visible ? " visible" : ""}`}
                         ref={Left.ref}
                     >
-                        <span className="home-eyebrow">
-                            <i className="fa-solid fa-globe" aria-hidden="true" />
-                            Panduan Lengkap Website
-                        </span>
-
                         <h1 className="home-headline">
                             WEB<span className="headline-accent">FLOW</span>
                         </h1>

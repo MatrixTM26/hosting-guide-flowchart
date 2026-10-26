@@ -10,7 +10,7 @@ export default function Footer() {
                         <span className="footer-brand-name">WEBFLOW</span>
                     </div>
                     <p className="footer-copy">
-                        Panduan Alur Pembuatan & Hosting Website — 2024
+                        Panduan Alur Pembuatan & Hosting Website — {new Date().getFullYear()}
                     </p>
                     <div className="footer-links">
                         <a href="#home" className="footer-link">Home</a>

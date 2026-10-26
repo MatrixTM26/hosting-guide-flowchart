@@ -88,25 +88,6 @@
     gap: 1.6rem;
 }
 
-.home-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-border);
-    border-radius: 100px;
-    padding: 5px 12px;
-    width: fit-content;
-}
-.home-eyebrow i {
-    font-size: 0.6rem;
-}
-
 .home-headline {
     font-family: var(--font-display);
     font-size: clamp(3rem, 7vw, 5.5rem);
@@ -186,9 +167,9 @@
 
 .home-visual-card {
     position: relative;
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     will-change: transform;
     backface-visibility: hidden;
@@ -283,15 +264,14 @@
     position: absolute;
     bottom: -16px;
     left: -16px;
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    background: var(--flat-card);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius);
     padding: 12px 16px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     z-index: 2;
-    backdrop-filter: blur(12px);
 }
 
 .floating-step-row {

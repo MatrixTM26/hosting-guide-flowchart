@@ -1,34 +1,40 @@
 :root {
-    --bg-base: #080808;
-    --bg-mid: #0e0e0e;
-    --bg-card: #131313;
-    --bg-raised: #181818;
-    --bg-inset: #050505;
+    --bg-base: #070709;
+    --bg-mid: #0c0c10;
+    --bg-card: #101014;
+    --bg-raised: #16161b;
+    --bg-inset: #040406;
 
-    --border: #1f1f1f;
-    --border-2: #303030;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-2: rgba(255, 255, 255, 0.13);
 
-    --text-1: #ebebeb;
-    --text-2: #888888;
-    --text-3: #555555;
-    --icon: #666666;
+    --text-1: #eeeef0;
+    --text-2: #82828c;
+    --text-3: #4e4e58;
+    --icon: #5c5c68;
 
     --accent: #22d3ee;
-    --accent-dim: rgba(34, 211, 238, 0.12);
-    --accent-glow: rgba(34, 211, 238, 0.06);
-    --accent-border: rgba(34, 211, 238, 0.25);
+    --accent-dim: rgba(34, 211, 238, 0.1);
+    --accent-glow: rgba(34, 211, 238, 0.055);
+    --accent-border: rgba(34, 211, 238, 0.2);
+    --accent-soft: rgba(34, 211, 238, 0.06);
 
-    --glass-bg: rgba(255, 255, 255, 0.055);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-hover: rgba(255, 255, 255, 0.085);
+    --flat-card: #111116;
+    --flat-card-hover: #16161c;
+
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(255, 255, 255, 0.07);
 
     --font-display: "Tourney", sans-serif;
     --font-body: "Space Grotesk", sans-serif;
 
     --container: 1160px;
-    --radius: 10px;
-    --radius-sm: 7px;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 18px;
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 *,
@@ -83,14 +89,25 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
-i[class*="fa-"] {
+i[class*="fa-"],
+i[class*="fa-"]::before {
     display: inline-block;
     line-height: 1;
     color: inherit;
+    background: none !important;
+    -webkit-text-fill-color: inherit;
 }
 
 svg {
     display: block;
+}
+
+*:focus {
+    outline: none;
+}
+*:focus-visible {
+    outline: 2px solid var(--accent-border);
+    outline-offset: 2px;
 }
 
 img,

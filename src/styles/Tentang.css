@@ -22,12 +22,12 @@
     height: 50vw;
     max-width: 600px;
     max-height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.04) 0%, transparent 65%);
+    border-radius: 50% 60% 40% 70% / 50% 40% 60% 50%;
+    background: radial-gradient(circle at 40% 60%, rgba(34, 211, 238, 0.045) 0%, transparent 65%);
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
-    filter: blur(3px);
+    filter: blur(40px);
 }
 
 .tentang-grid {
@@ -151,18 +151,18 @@
 }
 
 .tentang-stat-card {
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 1.4rem;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.3s var(--ease-spring);
 }
 .tentang-stat-card:hover {
     border-color: var(--accent-border);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .tentang-stat-number {
@@ -181,9 +181,9 @@
 }
 
 .tentang-phases-card {
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
@@ -247,12 +247,12 @@
 
 .tentang-creator-inner {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     gap: 2rem;
     align-items: center;
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 2rem 2.5rem;
     position: relative;
     overflow: hidden;
@@ -262,7 +262,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+    background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 60%);
     pointer-events: none;
 }
 .tentang-creator-inner:hover {
@@ -275,22 +275,15 @@
     height: 72px;
     flex-shrink: 0;
 }
-.tentang-creator-avatar span {
+.tentang-creator-avatar-img {
     width: 72px;
     height: 72px;
     border-radius: 18px;
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--accent);
-    letter-spacing: 0.04em;
+    object-fit: cover;
+    display: block;
     position: relative;
     z-index: 1;
+    border: 1.5px solid var(--accent-border);
 }
 .tentang-creator-avatar-ring {
     position: absolute;
@@ -328,18 +321,6 @@
     line-height: 1;
 }
 
-.tentang-creator-role {
-    font-size: 0.8rem;
-    color: var(--text-3);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-.tentang-creator-role i {
-    color: var(--accent);
-    font-size: 0.72rem;
-}
-
 .tentang-creator-links {
     display: flex;
     flex-wrap: wrap;
@@ -369,45 +350,10 @@
     font-size: 0.72rem;
 }
 
-.tentang-creator-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex-shrink: 0;
-}
-
-.tentang-creator-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--text-2);
-    background: var(--bg-mid);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 5px 10px;
-    white-space: nowrap;
-    letter-spacing: 0.04em;
-}
-.tentang-creator-badge i {
-    color: var(--accent);
-    font-size: 0.65rem;
-}
-
 @media (max-width: 900px) {
     .tentang-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
-    }
-    .tentang-creator-inner {
-        grid-template-columns: auto 1fr;
-        gap: 1.5rem;
-    }
-    .tentang-creator-badges {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        flex-wrap: wrap;
     }
 }
 
@@ -421,16 +367,10 @@
     .tentang-creator-avatar {
         margin: 0 auto;
     }
-    .tentang-creator-label,
-    .tentang-creator-role {
+    .tentang-creator-label {
         justify-content: center;
     }
     .tentang-creator-links {
-        justify-content: center;
-    }
-    .tentang-creator-badges {
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
     }
 }

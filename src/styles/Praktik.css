@@ -22,12 +22,12 @@
     height: 45vw;
     max-width: 550px;
     max-height: 550px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.04) 0%, transparent 65%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: radial-gradient(circle at 60% 40%, rgba(34, 211, 238, 0.045) 0%, transparent 65%);
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
-    filter: blur(3px);
+    filter: blur(40px);
 }
 
 .praktik-wrapper {
@@ -111,9 +111,9 @@
 }
 
 .praktik-display-card {
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     min-height: 380px;
     display: flex;
@@ -314,9 +314,9 @@
 }
 
 .praktik-step-list {
-    background: var(--bg-card);
+    background: var(--flat-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
