@@ -1,0 +1,442 @@
+.praktik {
+    position: relative;
+    overflow: hidden;
+}
+
+.praktik-bg {
+    position: absolute;
+    inset: -80px;
+    background:
+        radial-gradient(ellipse 45% 55% at 50% 50%, rgba(34, 211, 238, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.praktik-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.praktik-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.praktik-progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.praktik-step-counter {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: var(--text-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.praktik-step-counter span {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.praktik-progress-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.praktik-progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), rgba(34, 211, 238, 0.6));
+    border-radius: 2px;
+    transition: width 0.5s var(--ease-out);
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+.praktik-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+.praktik-status-badge.idle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-3);
+}
+.praktik-status-badge.running {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+}
+.praktik-status-badge.done {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #22c55e;
+}
+.praktik-status-badge i {
+    font-size: 0.65rem;
+}
+
+.praktik-display-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s;
+}
+.praktik-display-card.active {
+    border-color: var(--accent-border);
+}
+
+.praktik-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-mid);
+}
+
+.praktik-card-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.praktik-card-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    color: var(--text-3);
+    letter-spacing: 0.04em;
+}
+.praktik-card-title-bar i {
+    color: var(--accent);
+    font-size: 0.7rem;
+}
+
+.praktik-card-body {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.praktik-step-visual {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.praktik-step-icon-large {
+    width: 64px;
+    height: 64px;
+    background: var(--accent-dim);
+    border: 1.5px solid var(--accent-border);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 24px var(--accent-glow);
+}
+.praktik-step-icon-large i {
+    font-size: 1.6rem;
+    color: var(--accent);
+}
+
+.praktik-step-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.praktik-step-number-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.praktik-step-current-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-1);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+}
+
+.praktik-step-current-description {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.85;
+}
+
+.praktik-step-substeps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.praktik-substep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--text-2);
+    padding: 8px 12px;
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+}
+.praktik-substep.completed {
+    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--text-2);
+}
+.praktik-substep.current {
+    border-color: var(--accent-border);
+    background: var(--accent-dim);
+    color: var(--text-1);
+}
+.praktik-substep i {
+    font-size: 0.72rem;
+    flex-shrink: 0;
+}
+.praktik-substep.completed i { color: #22c55e; }
+.praktik-substep.current i { color: var(--accent); }
+.praktik-substep.pending i { color: var(--text-3); }
+
+.praktik-card-footer {
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.praktik-step-text {
+    font-size: 0.72rem;
+    color: var(--text-3);
+}
+
+.praktik-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.praktik-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+.praktik-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.praktik-btn-next {
+    background: var(--accent);
+    color: #080808;
+}
+.praktik-btn-next:hover:not(:disabled) {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.praktik-btn-reset {
+    background: var(--glass-bg);
+    color: var(--text-2);
+    border: 1px solid var(--glass-border);
+}
+.praktik-btn-reset:hover:not(:disabled) {
+    background: var(--glass-hover);
+    color: var(--text-1);
+}
+
+.praktik-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 100px;
+}
+
+.praktik-step-list {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.praktik-step-list-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-mid);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.praktik-step-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-3);
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+}
+.praktik-step-list-item:last-child {
+    border-bottom: none;
+}
+.praktik-step-list-item.completed {
+    color: var(--text-2);
+}
+.praktik-step-list-item.current {
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.list-item-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-3);
+    transition: all 0.3s;
+}
+.completed .list-item-dot {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+.current .list-item-dot {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.praktik-tip-card {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+}
+
+.praktik-tip-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.praktik-tip-label i {
+    font-size: 0.7rem;
+}
+
+.praktik-tip-text {
+    font-size: 0.8rem;
+    color: var(--text-2);
+    line-height: 1.75;
+}
+
+.praktik-finish-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.finish-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1.5px solid rgba(34, 197, 94, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.15);
+}
+.finish-icon i {
+    font-size: 1.8rem;
+    color: #22c55e;
+}
+
+.finish-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-1);
+}
+
+.finish-description {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    line-height: 1.75;
+    max-width: 320px;
+}
+
+@media (max-width: 960px) {
+    .praktik-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .praktik-sidebar {
+        position: static;
+    }
+}
