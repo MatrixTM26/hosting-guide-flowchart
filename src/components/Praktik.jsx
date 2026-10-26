@@ -146,7 +146,8 @@ export default function Praktik() {
 
     return (
         <section className="section praktik" id="praktik">
-            <div className="praktik-bg" data-parallax="slow" aria-hidden="true" />
+            <div className="praktik-bg" data-parallax="med" aria-hidden="true" />
+            <div className="praktik-orb" data-parallax="fast" aria-hidden="true" />
             <div className="container">
                 <div
                     className={`reveal${Header.visible ? " visible" : ""}`}

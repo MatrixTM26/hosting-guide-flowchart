@@ -1,14 +1,25 @@
 import { useEffect } from "react";
 
-const ParallaxSpeeds = { slow: 0.05, med: 0.12, fast: 0.25, reverse: -0.08 };
+const ParallaxSpeeds = {
+    slow: 0.18,
+    med: 0.35,
+    fast: 0.55,
+    reverse: -0.22,
+    deep: 0.7,
+    ultra: 0.9
+};
+
+const ZoomRange = { min: 0.88, max: 1.12 };
 
 export function useScrollManager() {
     useEffect(() => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-        let Entries = [];
+        let TranslateEntries = [];
+        let ZoomEntries = [];
         let RafId = null;
-        let Ticking = false;
+        let CurrentScrollY = window.scrollY;
+        let TargetScrollY = window.scrollY;
 
         const GetDocumentTop = Element => {
             let Top = 0;
@@ -21,39 +32,61 @@ export function useScrollManager() {
         };
 
         const Remeasure = () => {
-            Entries.forEach(Entry => {
+            TranslateEntries.forEach(Entry => {
+                Entry.SectionTop = GetDocumentTop(Entry.Section);
+                Entry.SectionHeight = Entry.Section.offsetHeight;
+            });
+            ZoomEntries.forEach(Entry => {
                 Entry.SectionTop = GetDocumentTop(Entry.Section);
                 Entry.SectionHeight = Entry.Section.offsetHeight;
             });
         };
 
         const Collect = () => {
-            Entries = [];
+            TranslateEntries = [];
+            ZoomEntries = [];
+
             for (const [Key, Speed] of Object.entries(ParallaxSpeeds)) {
                 document.querySelectorAll(`[data-parallax="${Key}"]`).forEach(Element => {
                     const Section = Element.closest("section") || Element.parentElement;
-                    Entries.push({ Element, Speed, Section });
+                    TranslateEntries.push({ Element, Speed, Section, SectionTop: 0, SectionHeight: 0 });
                 });
             }
+
+            document.querySelectorAll("[data-parallax-zoom]").forEach(Element => {
+                const Section = Element.closest("section") || Element.parentElement;
+                const Strength = parseFloat(Element.getAttribute("data-parallax-zoom")) || 0.12;
+                ZoomEntries.push({ Element, Strength, Section, SectionTop: 0, SectionHeight: 0 });
+            });
+
             Remeasure();
         };
 
         const Apply = () => {
-            const ScrollY = window.scrollY;
+            CurrentScrollY += (TargetScrollY - CurrentScrollY) * 0.072;
+
             const ViewportHalf = window.innerHeight * 0.5;
-            for (const { Element, Speed, SectionTop, SectionHeight } of Entries) {
+
+            for (const { Element, Speed, SectionTop, SectionHeight } of TranslateEntries) {
                 const Mid = SectionTop + SectionHeight * 0.5;
-                const Offset = (Mid - ScrollY - ViewportHalf) * Speed;
-                Element.style.transform = `translateY(${Offset.toFixed(2)}px) translateZ(0)`;
+                const Offset = (Mid - CurrentScrollY - ViewportHalf) * Speed;
+                Element.style.transform = `translateY(${Offset.toFixed(3)}px) translateZ(0)`;
             }
-            Ticking = false;
+
+            for (const { Element, Strength, SectionTop, SectionHeight } of ZoomEntries) {
+                const Mid = SectionTop + SectionHeight * 0.5;
+                const Progress = (CurrentScrollY + ViewportHalf - Mid) / (SectionHeight * 0.8);
+                const Clamped = Math.max(-1, Math.min(1, Progress));
+                const Scale = 1 + Clamped * Strength * -1;
+                const FinalScale = Math.max(ZoomRange.min, Math.min(ZoomRange.max, Scale));
+                Element.style.transform = `scale(${FinalScale.toFixed(4)}) translateZ(0)`;
+            }
+
+            RafId = requestAnimationFrame(Apply);
         };
 
-        const Loop = () => {
-            if (!Ticking) {
-                Ticking = true;
-                RafId = requestAnimationFrame(Apply);
-            }
+        const OnScroll = () => {
+            TargetScrollY = window.scrollY;
         };
 
         let ResizeTimer;
@@ -61,20 +94,26 @@ export function useScrollManager() {
             clearTimeout(ResizeTimer);
             ResizeTimer = setTimeout(() => {
                 Remeasure();
-                Apply();
             }, 120);
         };
 
         Collect();
-        Apply();
-        window.addEventListener("scroll", Loop, { passive: true });
+        RafId = requestAnimationFrame(Apply);
+        window.addEventListener("scroll", OnScroll, { passive: true });
         window.addEventListener("resize", OnResize, { passive: true });
 
+        const MutationObserver = window.MutationObserver;
+        const Observer = new MutationObserver(() => {
+            Collect();
+        });
+        Observer.observe(document.body, { childList: true, subtree: true });
+
         return () => {
-            window.removeEventListener("scroll", Loop);
+            window.removeEventListener("scroll", OnScroll);
             window.removeEventListener("resize", OnResize);
             cancelAnimationFrame(RafId);
             clearTimeout(ResizeTimer);
+            Observer.disconnect();
         };
     }, []);
 }

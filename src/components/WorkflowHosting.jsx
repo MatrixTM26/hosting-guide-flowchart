@@ -193,7 +193,8 @@ export default function WorkflowHosting() {
 
     return (
         <section className="section workflow-hosting" id="workflow-hosting">
-            <div className="workflow-bg" data-parallax="slow" aria-hidden="true" />
+            <div className="workflow-bg" data-parallax="med" aria-hidden="true" />
+            <div className="workflow-orb" data-parallax="deep" aria-hidden="true" />
             <div className="container">
                 <div
                     className={`reveal${Header.visible ? " visible" : ""}`}

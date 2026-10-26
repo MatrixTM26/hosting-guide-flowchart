@@ -14,8 +14,10 @@ export default function Home() {
 
     return (
         <section className="home" id="home">
-            <div className="home-parallax-bg" data-parallax="slow" aria-hidden="true" />
+            <div className="home-parallax-bg" data-parallax="med" aria-hidden="true" />
             <div className="home-grid" data-parallax="slow" aria-hidden="true" />
+            <div className="home-orb-left" data-parallax="fast" aria-hidden="true" />
+            <div className="home-orb-right" data-parallax="reverse" aria-hidden="true" />
             <div className="home-noise" aria-hidden="true" />
 
             <div className="container">
@@ -74,7 +76,7 @@ export default function Home() {
                         <div className="home-visual">
                             <span className="home-floating-badge">15 Steps</span>
 
-                            <div className="home-visual-card" data-parallax="reverse">
+                            <div className="home-visual-card" data-parallax="reverse" data-parallax-zoom="0.08">
                                 <div className="home-visual-card-header">
                                     <span className="dot dot-red" />
                                     <span className="dot dot-yellow" />

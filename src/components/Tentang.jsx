@@ -42,10 +42,12 @@ const PhaseItems = [
 export default function Tentang() {
     const Left = useScrollReveal({ threshold: 0.1 });
     const Right = useScrollReveal({ threshold: 0.1 });
+    const Creator = useScrollReveal({ threshold: 0.1 });
 
     return (
         <section className="section tentang" id="tentang">
-            <div className="tentang-bg" data-parallax="slow" aria-hidden="true" />
+            <div className="tentang-bg" data-parallax="med" aria-hidden="true" />
+            <div className="tentang-orb" data-parallax="deep" aria-hidden="true" />
             <div className="container">
                 <div style={{ marginBottom: "3.5rem" }}>
                     <p className="section-label">Info Website</p>
@@ -152,6 +154,67 @@ export default function Tentang() {
                                     <span>{Item}</span>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    className={`tentang-creator reveal${Creator.visible ? " visible" : ""}`}
+                    ref={Creator.ref}
+                >
+                    <div className="tentang-creator-inner">
+                        <div className="tentang-creator-avatar">
+                            <span>TM</span>
+                            <div className="tentang-creator-avatar-ring" />
+                        </div>
+                        <div className="tentang-creator-info">
+                            <p className="tentang-creator-label">Dibuat Oleh</p>
+                            <h3 className="tentang-creator-name">Teuku Maulana</h3>
+                            <p className="tentang-creator-role">
+                                <i className="fa-solid fa-shield-halved" aria-hidden="true" />
+                                Cyber Security · Red Teaming · DISKOMINFO Aceh Selatan
+                            </p>
+                            <div className="tentang-creator-links">
+                                <a
+                                    href="https://github.com/MatrixTM26"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="tentang-creator-link"
+                                >
+                                    <i className="fa-brands fa-github" aria-hidden="true" />
+                                    MatrixTM26
+                                </a>
+                                <a
+                                    href="mailto:anonymous.matrixtm26.dev@gmail.com"
+                                    className="tentang-creator-link"
+                                >
+                                    <i className="fa-solid fa-envelope" aria-hidden="true" />
+                                    anonymous.matrixtm26.dev@gmail.com
+                                </a>
+                                <a
+                                    href="https://matrixtm26-dev.vercel.app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="tentang-creator-link"
+                                >
+                                    <i className="fa-solid fa-globe" aria-hidden="true" />
+                                    matrixtm26-dev.vercel.app
+                                </a>
+                            </div>
+                        </div>
+                        <div className="tentang-creator-badges">
+                            <span className="tentang-creator-badge">
+                                <i className="fa-solid fa-certificate" aria-hidden="true" />
+                                CEH Certified
+                            </span>
+                            <span className="tentang-creator-badge">
+                                <i className="fa-solid fa-shield" aria-hidden="true" />
+                                OPSWAT ICIP
+                            </span>
+                            <span className="tentang-creator-badge">
+                                <i className="fa-brands fa-cisco" aria-hidden="true" />
+                                Cisco NetSec
+                            </span>
                         </div>
                     </div>
                 </div>

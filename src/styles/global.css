@@ -69,6 +69,30 @@ body {
     color: var(--text-1);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+i[class*="fa-"] {
+    display: inline-block;
+    line-height: 1;
+    color: inherit;
+}
+
+svg {
+    display: block;
+}
+
 img,
 video {
     max-width: 100%;
@@ -82,14 +106,21 @@ video {
 }
 
 .section {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: clamp(80px, 8vw, 120px) 0;
-    overflow: hidden;
+    padding: clamp(72px, 8vw, 120px) 0;
+    overflow: clip;
     content-visibility: auto;
     contain-intrinsic-size: 0 100vh;
+}
+
+@media (max-width: 480px) {
+    .section {
+        min-height: auto;
+        padding: 80px 0;
+    }
 }
 
 .section-label {

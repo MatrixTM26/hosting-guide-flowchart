@@ -144,7 +144,8 @@ export default function AlurPembuatan() {
 
     return (
         <section className="section alur-pembuatan" id="alur-pembuatan">
-            <div className="alur-pembuatan-bg" data-parallax="slow" aria-hidden="true" />
+            <div className="alur-pembuatan-bg" data-parallax="med" aria-hidden="true" />
+            <div className="alur-pembuatan-orb" data-parallax="fast" aria-hidden="true" />
             <div className="container">
                 <div
                     className={`alur-header reveal${Header.visible ? " visible" : ""}`}

@@ -31,6 +31,38 @@
     backface-visibility: hidden;
 }
 
+.home-orb-left {
+    position: absolute;
+    left: -20%;
+    top: 10%;
+    width: 55vw;
+    height: 55vw;
+    max-width: 700px;
+    max-height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.055) 0%, transparent 65%);
+    pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
+    filter: blur(2px);
+}
+
+.home-orb-right {
+    position: absolute;
+    right: -10%;
+    bottom: -10%;
+    width: 40vw;
+    height: 40vw;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.035) 0%, transparent 65%);
+    pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
+    filter: blur(4px);
+}
+
 .home-noise {
     position: absolute;
     inset: 0;
