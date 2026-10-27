@@ -119,10 +119,29 @@
     min-height: 360px;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.3s;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.4s;
+}
+.praktik-display-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 90% at 50% 108%, rgba(163, 230, 53, 0.085) 0%, transparent 68%);
+    clip-path: ellipse(0% 0% at 50% 108%);
+    transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+.praktik-display-card.active::after {
+    clip-path: ellipse(180% 160% at 50% 108%);
+}
+.praktik-display-card > * {
+    position: relative;
+    z-index: 1;
 }
 .praktik-display-card.active {
     border-color: var(--accent-border);
+    box-shadow: 0 0 0 1px rgba(163, 230, 53, 0.07), 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .praktik-card-header {

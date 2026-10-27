@@ -70,19 +70,44 @@
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.25s, background 0.2s, box-shadow 0.4s;
     cursor: default;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
+}
+.workflow-platform-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 100% at 50% 110%, rgba(163, 230, 53, 0.09) 0%, transparent 65%);
+    clip-path: ellipse(0% 0% at 50% 110%);
+    transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+.workflow-platform-card:hover::after {
+    clip-path: ellipse(180% 170% at 50% 110%);
+}
+.workflow-platform-card > * {
+    position: relative;
+    z-index: 1;
 }
 .workflow-platform-card:hover {
     border-color: var(--accent-border);
     background: var(--flat-card-hover);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 .workflow-platform-card.recommended {
     border-color: var(--accent-border);
     background: var(--flat-card-hover);
-    margin-top: 10px;
+    margin-top: 18px;
+    overflow: visible;
+}
+.workflow-platform-card.recommended::after {
+    display: none;
+}
+.workflow-platform-card.recommended:hover {
+    box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.12), 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
 .platform-rec-badge {
@@ -202,12 +227,17 @@
     flex-direction: column;
     gap: 0;
     position: relative;
+    min-width: 0;
+    width: 100%;
 }
 
 .workflow-step {
     display: flex;
     gap: 1.25rem;
     position: relative;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .workflow-step-left {
@@ -257,12 +287,13 @@
 }
 
 .workflow-step-content {
-    flex: 1;
+    flex: 1 1 0%;
     padding: 0 0 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
     min-width: 0;
+    overflow: clip;
 }
 
 .workflow-step-header {
@@ -301,19 +332,44 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: border-color 0.25s;
+    position: relative;
+    width: 100%;
+    transition: border-color 0.25s, box-shadow 0.4s;
 }
 .workflow-step.active .workflow-step-body {
     border-color: var(--border-2);
 }
+.workflow-step-body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 90% at 50% 108%, rgba(163, 230, 53, 0.1) 0%, transparent 68%);
+    clip-path: ellipse(0% 0% at 50% 108%);
+    transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+.workflow-step:hover .workflow-step-body::after {
+    clip-path: ellipse(170% 160% at 50% 108%);
+}
+.workflow-step:hover .workflow-step-body {
+    border-color: var(--accent-border);
+    box-shadow: 0 0 0 1px rgba(163, 230, 53, 0.08), 0 8px 32px rgba(0, 0, 0, 0.35);
+}
 
 .workflow-step-img {
     width: 100%;
+    max-width: 100%;
     height: 150px;
     object-fit: cover;
     filter: brightness(0.55) saturate(0.35);
-    transition: filter 0.3s;
+    transition: filter 0.4s;
     display: block;
+    position: relative;
+    z-index: 0;
+}
+.workflow-step:hover .workflow-step-img {
+    filter: brightness(0.72) saturate(0.52);
 }
 .workflow-step.active .workflow-step-img {
     filter: brightness(0.7) saturate(0.5);

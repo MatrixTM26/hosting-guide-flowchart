@@ -78,16 +78,34 @@
     flex-direction: column;
     gap: 0.85rem;
     position: relative;
-    transition: border-color 0.25s, background 0.25s, transform 0.3s var(--ease-spring);
+    overflow: hidden;
+    transition: border-color 0.25s, background 0.25s, transform 0.4s var(--ease-spring), box-shadow 0.4s;
     cursor: default;
 }
-
+.step-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 95% 90% at 50% 108%, rgba(163, 230, 53, 0.11) 0%, transparent 68%);
+    clip-path: ellipse(0% 0% at 50% 108%);
+    transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+}
+.step-card:hover::after {
+    clip-path: ellipse(180% 170% at 50% 108%);
+}
+.step-card > * {
+    position: relative;
+    z-index: 2;
+}
 .step-card:hover {
     border-color: var(--accent-border);
     background: var(--flat-card-hover);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(163, 230, 53, 0.1);
 }
-
 .step-card.highlight {
     border-color: var(--accent-border);
     background: var(--flat-card-hover);

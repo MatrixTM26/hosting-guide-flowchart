@@ -158,11 +158,32 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    transition: border-color 0.2s, transform 0.3s var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.4s var(--ease-spring), box-shadow 0.4s;
+}
+.tentang-stat-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 90% at 50% 108%, rgba(163, 230, 53, 0.1) 0%, transparent 70%);
+    clip-path: ellipse(0% 0% at 50% 108%);
+    transition: clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+.tentang-stat-card:hover::after {
+    clip-path: ellipse(190% 175% at 50% 108%);
+}
+.tentang-stat-card > * {
+    position: relative;
+    z-index: 1;
 }
 .tentang-stat-card:hover {
     border-color: var(--accent-border);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(163, 230, 53, 0.09);
 }
 
 .tentang-stat-number {
