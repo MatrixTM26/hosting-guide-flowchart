@@ -7,8 +7,16 @@
     position: absolute;
     inset: -120px;
     background:
-        radial-gradient(ellipse 55% 50% at 20% 50%, rgba(163, 230, 53, 0.045) 0%, transparent 68%),
-        radial-gradient(ellipse 30% 40% at 85% 80%, rgba(163, 230, 53, 0.02) 0%, transparent 60%);
+        radial-gradient(
+            ellipse 55% 50% at 20% 50%,
+            rgba(163, 230, 53, 0.045) 0%,
+            transparent 68%
+        ),
+        radial-gradient(
+            ellipse 30% 40% at 85% 80%,
+            rgba(163, 230, 53, 0.02) 0%,
+            transparent 60%
+        );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -23,7 +31,11 @@
     max-width: 600px;
     max-height: 600px;
     border-radius: 30% 70% 50% 50% / 30% 50% 70% 50%;
-    background: radial-gradient(circle at 50% 50%, rgba(163, 230, 53, 0.035) 0%, transparent 65%);
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(163, 230, 53, 0.035) 0%,
+        transparent 65%
+    );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -70,16 +82,23 @@
     display: flex;
     align-items: center;
     gap: 0.875rem;
-    transition: border-color 0.25s, background 0.2s, box-shadow 0.4s;
+    transition:
+        border-color 0.25s,
+        background 0.2s,
+        box-shadow 0.4s;
     cursor: default;
     position: relative;
     overflow: hidden;
 }
 .workflow-platform-card::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 100% 100% at 50% 110%, rgba(163, 230, 53, 0.09) 0%, transparent 65%);
+    background: radial-gradient(
+        ellipse 100% 100% at 50% 110%,
+        rgba(163, 230, 53, 0.09) 0%,
+        transparent 65%
+    );
     clip-path: ellipse(0% 0% at 50% 110%);
     transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -107,7 +126,9 @@
     display: none;
 }
 .workflow-platform-card.recommended:hover {
-    box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.12), 0 6px 24px rgba(0, 0, 0, 0.35);
+    box-shadow:
+        0 0 0 3px rgba(163, 230, 53, 0.12),
+        0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
 .platform-rec-badge {
@@ -258,7 +279,9 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: border-color 0.3s, background 0.3s;
+    transition:
+        border-color 0.3s,
+        background 0.3s;
     z-index: 1;
 }
 .workflow-step-circle i {
@@ -283,7 +306,11 @@
     margin: 4px 0;
 }
 .workflow-step.active .workflow-step-line {
-    background: linear-gradient(to bottom, var(--accent-border) 0%, var(--border) 100%);
+    background: linear-gradient(
+        to bottom,
+        var(--accent-border) 0%,
+        var(--border) 100%
+    );
 }
 
 .workflow-step-content {
@@ -334,16 +361,22 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    transition: border-color 0.25s, box-shadow 0.4s;
+    transition:
+        border-color 0.25s,
+        box-shadow 0.4s;
 }
 .workflow-step.active .workflow-step-body {
     border-color: var(--border-2);
 }
 .workflow-step-body::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 90% 90% at 50% 108%, rgba(163, 230, 53, 0.1) 0%, transparent 68%);
+    background: radial-gradient(
+        ellipse 90% 90% at 50% 108%,
+        rgba(163, 230, 53, 0.1) 0%,
+        transparent 68%
+    );
     clip-path: ellipse(0% 0% at 50% 108%);
     transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -354,7 +387,9 @@
 }
 .workflow-step:hover .workflow-step-body {
     border-color: var(--accent-border);
-    box-shadow: 0 0 0 1px rgba(163, 230, 53, 0.08), 0 8px 32px rgba(0, 0, 0, 0.35);
+    box-shadow:
+        0 0 0 1px rgba(163, 230, 53, 0.08),
+        0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .workflow-step-img {

@@ -7,8 +7,16 @@
     position: absolute;
     inset: -120px;
     background:
-        radial-gradient(ellipse 60% 60% at 50% 40%, rgba(163, 230, 53, 0.04) 0%, transparent 68%),
-        radial-gradient(ellipse 35% 40% at 10% 80%, rgba(163, 230, 53, 0.025) 0%, transparent 60%);
+        radial-gradient(
+            ellipse 60% 60% at 50% 40%,
+            rgba(163, 230, 53, 0.04) 0%,
+            transparent 68%
+        ),
+        radial-gradient(
+            ellipse 35% 40% at 10% 80%,
+            rgba(163, 230, 53, 0.025) 0%,
+            transparent 60%
+        );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -23,7 +31,11 @@
     max-width: 600px;
     max-height: 600px;
     border-radius: 50% 60% 40% 70% / 50% 40% 60% 50%;
-    background: radial-gradient(circle at 40% 60%, rgba(163, 230, 53, 0.035) 0%, transparent 65%);
+    background: radial-gradient(
+        circle at 40% 60%,
+        rgba(163, 230, 53, 0.035) 0%,
+        transparent 65%
+    );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -127,7 +139,9 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     color: var(--text-2);
-    transition: border-color 0.2s, color 0.2s;
+    transition:
+        border-color 0.2s,
+        color 0.2s;
 }
 .tentang-tech-tag:hover {
     border-color: var(--accent-border);
@@ -160,13 +174,20 @@
     gap: 0.5rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s, transform 0.4s var(--ease-spring), box-shadow 0.4s;
+    transition:
+        border-color 0.25s,
+        transform 0.4s var(--ease-spring),
+        box-shadow 0.4s;
 }
 .tentang-stat-card::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 100% 90% at 50% 108%, rgba(163, 230, 53, 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+        ellipse 100% 90% at 50% 108%,
+        rgba(163, 230, 53, 0.1) 0%,
+        transparent 70%
+    );
     clip-path: ellipse(0% 0% at 50% 108%);
     transition: clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -183,7 +204,9 @@
 .tentang-stat-card:hover {
     border-color: var(--accent-border);
     transform: translateY(-4px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(163, 230, 53, 0.09);
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(163, 230, 53, 0.09);
 }
 
 .tentang-stat-number {
@@ -315,8 +338,15 @@
     animation: CreatorRingPulse 3s ease-in-out infinite;
 }
 @keyframes CreatorRingPulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.15; transform: scale(1.06); }
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.15;
+        transform: scale(1.06);
+    }
 }
 
 .tentang-creator-info {
@@ -360,7 +390,10 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 4px 10px;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition:
+        color 0.2s,
+        border-color 0.2s,
+        background 0.2s;
 }
 .tentang-creator-link:hover {
     color: var(--accent);

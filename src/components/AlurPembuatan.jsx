@@ -6,7 +6,8 @@ const StepData = [
         Number: "01",
         Icon: "fa-solid fa-clipboard-list",
         Title: "Perencanaan & Riset",
-        Description: "Tentukan tujuan website, target audiens, dan konten yang dibutuhkan. Riset kompetitor dan buat sitemap awal.",
+        Description:
+            "Tentukan tujuan website, target audiens, dan konten yang dibutuhkan. Riset kompetitor dan buat sitemap awal.",
         Tags: ["Tujuan", "Audiens", "Sitemap"],
         Duration: "1-2 Hari",
         Required: true,
@@ -17,7 +18,8 @@ const StepData = [
         Number: "02",
         Icon: "fa-solid fa-pen-ruler",
         Title: "Desain Wireframe",
-        Description: "Buat sketsa tata letak halaman (low-fidelity). Tentukan hierarki konten, navigasi, dan alur pengguna.",
+        Description:
+            "Buat sketsa tata letak halaman (low-fidelity). Tentukan hierarki konten, navigasi, dan alur pengguna.",
         Tags: ["Wireframe", "Layout", "User Flow"],
         Duration: "2-3 Hari",
         Required: true,
@@ -28,7 +30,8 @@ const StepData = [
         Number: "03",
         Icon: "fa-solid fa-palette",
         Title: "Desain UI/UX",
-        Description: "Kembangkan desain high-fidelity menggunakan Figma atau Adobe XD. Tentukan color palette, tipografi, dan komponen UI.",
+        Description:
+            "Kembangkan desain high-fidelity menggunakan Figma atau Adobe XD. Tentukan color palette, tipografi, dan komponen UI.",
         Tags: ["Figma", "Color Palette", "Typography"],
         Duration: "3-5 Hari",
         Required: true,
@@ -39,7 +42,8 @@ const StepData = [
         Number: "04",
         Icon: "fa-solid fa-gear",
         Title: "Setup Environment",
-        Description: "Siapkan code editor (VS Code), install Node.js, Git, dan pilih framework. Inisialisasi repository di GitHub.",
+        Description:
+            "Siapkan code editor (VS Code), install Node.js, Git, dan pilih framework. Inisialisasi repository di GitHub.",
         Tags: ["VS Code", "Node.js", "Git"],
         Duration: "0.5 Hari",
         Required: true,
@@ -50,7 +54,8 @@ const StepData = [
         Number: "05",
         Icon: "fa-solid fa-code",
         Title: "Development Frontend",
-        Description: "Implementasikan desain ke kode menggunakan HTML, CSS, JavaScript, atau framework modern seperti React, Vue, atau Next.js.",
+        Description:
+            "Implementasikan desain ke kode menggunakan HTML, CSS, JavaScript, atau framework modern seperti React, Vue, atau Next.js.",
         Tags: ["HTML", "CSS", "React/Vue"],
         Duration: "5-14 Hari",
         Required: true,
@@ -61,7 +66,8 @@ const StepData = [
         Number: "06",
         Icon: "fa-solid fa-database",
         Title: "Development Backend",
-        Description: "Bangun API, database, dan server-side logic jika dibutuhkan. Gunakan Node.js, Python, atau platform seperti Firebase/Supabase.",
+        Description:
+            "Bangun API, database, dan server-side logic jika dibutuhkan. Gunakan Node.js, Python, atau platform seperti Firebase/Supabase.",
         Tags: ["API", "Database", "Firebase"],
         Duration: "3-10 Hari",
         Required: false,
@@ -72,7 +78,8 @@ const StepData = [
         Number: "07",
         Icon: "fa-solid fa-flask",
         Title: "Testing & QA",
-        Description: "Uji website di berbagai browser dan ukuran layar. Lakukan performance testing, accessibility audit, dan bug fixing.",
+        Description:
+            "Uji website di berbagai browser dan ukuran layar. Lakukan performance testing, accessibility audit, dan bug fixing.",
         Tags: ["Cross-browser", "Responsive", "Lighthouse"],
         Duration: "2-4 Hari",
         Required: true,
@@ -83,7 +90,8 @@ const StepData = [
         Number: "08",
         Icon: "fa-solid fa-rocket",
         Title: "Build & Optimasi",
-        Description: "Jalankan build production, optimasi gambar, minify CSS/JS, dan pastikan Core Web Vitals memenuhi standar Google.",
+        Description:
+            "Jalankan build production, optimasi gambar, minify CSS/JS, dan pastikan Core Web Vitals memenuhi standar Google.",
         Tags: ["Build", "Minify", "Core Web Vitals"],
         Duration: "1-2 Hari",
         Required: true,
@@ -120,7 +128,9 @@ function StepCard({ Data, DelayClass }) {
                 <p className="step-description">{Data.Description}</p>
                 <div className="step-tags">
                     {Data.Tags.map(Tag => (
-                        <span key={Tag} className="step-tag">{Tag}</span>
+                        <span key={Tag} className="step-tag">
+                            {Tag}
+                        </span>
                     ))}
                 </div>
             </div>
@@ -129,7 +139,9 @@ function StepCard({ Data, DelayClass }) {
                     <i className="fa-regular fa-clock" aria-hidden="true" />
                     {Data.Duration}
                 </span>
-                <span className={`step-required-badge ${Data.Required ? "required" : "optional"}`}>
+                <span
+                    className={`step-required-badge ${Data.Required ? "required" : "optional"}`}
+                >
                     {Data.Required ? "Wajib" : "Opsional"}
                 </span>
             </div>
@@ -137,15 +149,32 @@ function StepCard({ Data, DelayClass }) {
     );
 }
 
-const DelayClasses = ["", "delay-1", "delay-2", "delay-3", "delay-1", "delay-2", "delay-3", "delay-4"];
+const DelayClasses = [
+    "",
+    "delay-1",
+    "delay-2",
+    "delay-3",
+    "delay-1",
+    "delay-2",
+    "delay-3",
+    "delay-4"
+];
 
 export default function AlurPembuatan() {
     const Header = useScrollReveal({ threshold: 0.1 });
 
     return (
         <section className="section alur-pembuatan" id="alur-pembuatan">
-            <div className="alur-pembuatan-bg" data-parallax="med" aria-hidden="true" />
-            <div className="alur-pembuatan-orb" data-parallax="fast" aria-hidden="true" />
+            <div
+                className="alur-pembuatan-bg"
+                data-parallax="med"
+                aria-hidden="true"
+            />
+            <div
+                className="alur-pembuatan-orb"
+                data-parallax="fast"
+                aria-hidden="true"
+            />
             <div className="container">
                 <div
                     className={`alur-header reveal${Header.visible ? " visible" : ""}`}
@@ -153,15 +182,23 @@ export default function AlurPembuatan() {
                 >
                     <div className="alur-header-row">
                         <div>
-                            <p className="section-label">Fase 1 — Development</p>
-                            <h2 className="section-title">Alur Pembuatan Website</h2>
+                            <p className="section-label">
+                                Fase 1 — Development
+                            </p>
+                            <h2 className="section-title">
+                                Alur Pembuatan Website
+                            </h2>
                             <p className="section-description">
-                                8 langkah sistematis dari konsep hingga kode siap deploy.
-                                Ikuti flowchart ini untuk membangun website yang terstruktur dan profesional.
+                                8 langkah sistematis dari konsep hingga kode
+                                siap deploy. Ikuti flowchart ini untuk membangun
+                                website yang terstruktur dan profesional.
                             </p>
                         </div>
                         <div className="alur-step-count">
-                            <i className="fa-solid fa-diagram-project" aria-hidden="true" />
+                            <i
+                                className="fa-solid fa-diagram-project"
+                                aria-hidden="true"
+                            />
                             8 Langkah · Fase Development
                         </div>
                     </div>

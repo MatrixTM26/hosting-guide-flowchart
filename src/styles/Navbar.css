@@ -13,7 +13,9 @@
     -webkit-backdrop-filter: blur(32px) saturate(1.6);
     border: 1px solid rgba(240, 246, 252, 0.1);
     border-radius: 100px;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 4px 32px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
     white-space: nowrap;
 }
 
@@ -68,7 +70,9 @@
     font-size: 0.76rem;
     font-weight: 500;
     color: var(--icon);
-    transition: background 0.2s, color 0.2s;
+    transition:
+        background 0.2s,
+        color 0.2s;
     letter-spacing: 0.01em;
 }
 .fdock-item i {
@@ -113,7 +117,9 @@
     height: 2px;
     background: var(--text-1);
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 .hamburger-lines span:nth-child(2) {
     width: 14px;
@@ -160,7 +166,9 @@
     border: 1px solid rgba(240, 246, 252, 0.12);
     border-radius: 28px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
-    transition: transform 0.4s var(--ease-out), opacity 0.3s;
+    transition:
+        transform 0.4s var(--ease-out),
+        opacity 0.3s;
     opacity: 0;
 }
 .mobile-dock.open {
@@ -177,7 +185,10 @@
     border-radius: 18px;
     text-decoration: none;
     color: var(--icon);
-    transition: background 0.2s, color 0.2s, transform 0.15s;
+    transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.15s;
 }
 .dock-item:active {
     transform: scale(0.9);

@@ -7,8 +7,16 @@
     position: absolute;
     inset: -120px;
     background:
-        radial-gradient(ellipse 55% 60% at 80% 50%, rgba(163, 230, 53, 0.04) 0%, transparent 68%),
-        radial-gradient(ellipse 35% 40% at 10% 20%, rgba(163, 230, 53, 0.02) 0%, transparent 60%);
+        radial-gradient(
+            ellipse 55% 60% at 80% 50%,
+            rgba(163, 230, 53, 0.04) 0%,
+            transparent 68%
+        ),
+        radial-gradient(
+            ellipse 35% 40% at 10% 20%,
+            rgba(163, 230, 53, 0.02) 0%,
+            transparent 60%
+        );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -23,7 +31,11 @@
     max-width: 650px;
     max-height: 650px;
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    background: radial-gradient(circle at 40% 40%, rgba(163, 230, 53, 0.04) 0%, transparent 65%);
+    background: radial-gradient(
+        circle at 40% 40%,
+        rgba(163, 230, 53, 0.04) 0%,
+        transparent 65%
+    );
     pointer-events: none;
     will-change: transform;
     backface-visibility: hidden;
@@ -79,14 +91,22 @@
     gap: 0.85rem;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s, background 0.25s, transform 0.4s var(--ease-spring), box-shadow 0.4s;
+    transition:
+        border-color 0.25s,
+        background 0.25s,
+        transform 0.4s var(--ease-spring),
+        box-shadow 0.4s;
     cursor: default;
 }
 .step-card::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 95% 90% at 50% 108%, rgba(163, 230, 53, 0.11) 0%, transparent 68%);
+    background: radial-gradient(
+        ellipse 95% 90% at 50% 108%,
+        rgba(163, 230, 53, 0.11) 0%,
+        transparent 68%
+    );
     clip-path: ellipse(0% 0% at 50% 108%);
     transition: clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -104,7 +124,9 @@
     border-color: var(--accent-border);
     background: var(--flat-card-hover);
     transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(163, 230, 53, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(163, 230, 53, 0.1);
 }
 .step-card.highlight {
     border-color: var(--accent-border);
@@ -118,7 +140,9 @@
     border-radius: 4px;
     opacity: 0.55;
     filter: brightness(0.7) saturate(0.4);
-    transition: opacity 0.3s, filter 0.3s;
+    transition:
+        opacity 0.3s,
+        filter 0.3s;
 }
 .step-card:hover .step-card-img {
     opacity: 0.75;

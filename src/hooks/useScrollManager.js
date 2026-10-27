@@ -13,7 +13,8 @@ const ZoomRange = { min: 0.88, max: 1.12 };
 
 export function useScrollManager() {
     useEffect(() => {
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+            return;
 
         let TranslateEntries = [];
         let ZoomEntries = [];
@@ -47,17 +48,38 @@ export function useScrollManager() {
             ZoomEntries = [];
 
             for (const [Key, Speed] of Object.entries(ParallaxSpeeds)) {
-                document.querySelectorAll(`[data-parallax="${Key}"]`).forEach(Element => {
-                    const Section = Element.closest("section") || Element.parentElement;
-                    TranslateEntries.push({ Element, Speed, Section, SectionTop: 0, SectionHeight: 0 });
-                });
+                document
+                    .querySelectorAll(`[data-parallax="${Key}"]`)
+                    .forEach(Element => {
+                        const Section =
+                            Element.closest("section") || Element.parentElement;
+                        TranslateEntries.push({
+                            Element,
+                            Speed,
+                            Section,
+                            SectionTop: 0,
+                            SectionHeight: 0
+                        });
+                    });
             }
 
-            document.querySelectorAll("[data-parallax-zoom]").forEach(Element => {
-                const Section = Element.closest("section") || Element.parentElement;
-                const Strength = parseFloat(Element.getAttribute("data-parallax-zoom")) || 0.12;
-                ZoomEntries.push({ Element, Strength, Section, SectionTop: 0, SectionHeight: 0 });
-            });
+            document
+                .querySelectorAll("[data-parallax-zoom]")
+                .forEach(Element => {
+                    const Section =
+                        Element.closest("section") || Element.parentElement;
+                    const Strength =
+                        parseFloat(
+                            Element.getAttribute("data-parallax-zoom")
+                        ) || 0.12;
+                    ZoomEntries.push({
+                        Element,
+                        Strength,
+                        Section,
+                        SectionTop: 0,
+                        SectionHeight: 0
+                    });
+                });
 
             Remeasure();
         };
@@ -67,18 +89,33 @@ export function useScrollManager() {
 
             const ViewportHalf = window.innerHeight * 0.5;
 
-            for (const { Element, Speed, SectionTop, SectionHeight } of TranslateEntries) {
+            for (const {
+                Element,
+                Speed,
+                SectionTop,
+                SectionHeight
+            } of TranslateEntries) {
                 const Mid = SectionTop + SectionHeight * 0.5;
                 const Offset = (Mid - CurrentScrollY - ViewportHalf) * Speed;
                 Element.style.transform = `translateY(${Offset.toFixed(3)}px) translateZ(0)`;
             }
 
-            for (const { Element, Strength, SectionTop, SectionHeight } of ZoomEntries) {
+            for (const {
+                Element,
+                Strength,
+                SectionTop,
+                SectionHeight
+            } of ZoomEntries) {
                 const Mid = SectionTop + SectionHeight * 0.5;
-                const Progress = (CurrentScrollY + ViewportHalf - Mid) / (SectionHeight * 0.8);
+                const Progress =
+                    (CurrentScrollY + ViewportHalf - Mid) /
+                    (SectionHeight * 0.8);
                 const Clamped = Math.max(-1, Math.min(1, Progress));
                 const Scale = 1 + Clamped * Strength * -1;
-                const FinalScale = Math.max(ZoomRange.min, Math.min(ZoomRange.max, Scale));
+                const FinalScale = Math.max(
+                    ZoomRange.min,
+                    Math.min(ZoomRange.max, Scale)
+                );
                 Element.style.transform = `scale(${FinalScale.toFixed(4)}) translateZ(0)`;
             }
 

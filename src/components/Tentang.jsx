@@ -5,22 +5,26 @@ const FeatureItems = [
     {
         Icon: "fa-solid fa-diagram-project",
         Title: "Flowchart Visual",
-        Description: "Setiap langkah dijelaskan dengan visual yang jelas dan mudah dipahami, cocok untuk pemula maupun developer berpengalaman."
+        Description:
+            "Setiap langkah dijelaskan dengan visual yang jelas dan mudah dipahami, cocok untuk pemula maupun developer berpengalaman."
     },
     {
         Icon: "fa-solid fa-laptop-code",
         Title: "Simulasi Interaktif",
-        Description: "Praktikkan alur kerja secara langsung dengan simulator step-by-step yang memberikan pengalaman hands-on."
+        Description:
+            "Praktikkan alur kerja secara langsung dengan simulator step-by-step yang memberikan pengalaman hands-on."
     },
     {
         Icon: "fa-solid fa-code",
         Title: "Contoh Kode Nyata",
-        Description: "Setiap langkah dilengkapi dengan perintah dan kode yang bisa langsung digunakan di project sungguhan."
+        Description:
+            "Setiap langkah dilengkapi dengan perintah dan kode yang bisa langsung digunakan di project sungguhan."
     },
     {
         Icon: "fa-solid fa-mobile-screen",
         Title: "Responsif & Modern",
-        Description: "Dibangun dengan teknologi modern dan desain yang optimal di semua ukuran layar dari mobile hingga desktop."
+        Description:
+            "Dibangun dengan teknologi modern dan desain yang optimal di semua ukuran layar dari mobile hingga desktop."
     }
 ];
 
@@ -46,8 +50,16 @@ export default function Tentang() {
 
     return (
         <section className="section tentang" id="tentang">
-            <div className="tentang-bg" data-parallax="med" aria-hidden="true" />
-            <div className="tentang-orb" data-parallax="deep" aria-hidden="true" />
+            <div
+                className="tentang-bg"
+                data-parallax="med"
+                aria-hidden="true"
+            />
+            <div
+                className="tentang-orb"
+                data-parallax="deep"
+                aria-hidden="true"
+            />
             <div className="container">
                 <div style={{ marginBottom: "3.5rem" }}>
                     <p className="section-label">Info Website</p>
@@ -60,36 +72,70 @@ export default function Tentang() {
                         ref={Left.ref}
                     >
                         <p className="tentang-description">
-                            <strong style={{ color: "var(--text-1)", fontFamily: "var(--font-display)", fontWeight: 900 }}>WebFlow</strong> adalah panduan visual interaktif yang menjelaskan
-                            alur lengkap proses pembuatan dan hosting website secara profesional.
-                            Dari tahap perencanaan, desain UI/UX, development, testing, hingga deployment dan go-live.
+                            <strong
+                                style={{
+                                    color: "var(--text-1)",
+                                    fontFamily: "var(--font-display)",
+                                    fontWeight: 900
+                                }}
+                            >
+                                WebFlow
+                            </strong>{" "}
+                            adalah panduan visual interaktif yang menjelaskan
+                            alur lengkap proses pembuatan dan hosting website
+                            secara profesional. Dari tahap perencanaan, desain
+                            UI/UX, development, testing, hingga deployment dan
+                            go-live.
                         </p>
-                        <p className="tentang-description" style={{ marginTop: "-1.5rem" }}>
-                            Website ini dirancang sebagai referensi komprehensif yang bisa diikuti oleh
-                            siapa saja — dari pelajar, mahasiswa, hingga developer profesional yang
-                            ingin memahami workflow pembuatan website secara end-to-end.
+                        <p
+                            className="tentang-description"
+                            style={{ marginTop: "-1.5rem" }}
+                        >
+                            Website ini dirancang sebagai referensi komprehensif
+                            yang bisa diikuti oleh siapa saja — dari pelajar,
+                            mahasiswa, hingga developer profesional yang ingin
+                            memahami workflow pembuatan website secara
+                            end-to-end.
                         </p>
 
                         <div className="tentang-feature-list">
                             {FeatureItems.map(Feature => (
-                                <div key={Feature.Title} className="tentang-feature-item">
+                                <div
+                                    key={Feature.Title}
+                                    className="tentang-feature-item"
+                                >
                                     <div className="tentang-feature-icon">
-                                        <i className={Feature.Icon} aria-hidden="true" />
+                                        <i
+                                            className={Feature.Icon}
+                                            aria-hidden="true"
+                                        />
                                     </div>
                                     <div className="tentang-feature-text">
-                                        <span className="tentang-feature-title">{Feature.Title}</span>
-                                        <span className="tentang-feature-desc">{Feature.Description}</span>
+                                        <span className="tentang-feature-title">
+                                            {Feature.Title}
+                                        </span>
+                                        <span className="tentang-feature-desc">
+                                            {Feature.Description}
+                                        </span>
                                     </div>
                                 </div>
                             ))}
                         </div>
 
                         <div className="tentang-tech-stack">
-                            <p className="tentang-tech-label">Dibangun Dengan</p>
+                            <p className="tentang-tech-label">
+                                Dibangun Dengan
+                            </p>
                             <div className="tentang-tech-tags">
                                 {TechTagItems.map(Tag => (
-                                    <span key={Tag.Label} className="tentang-tech-tag">
-                                        <i className={Tag.Icon} aria-hidden="true" />
+                                    <span
+                                        key={Tag.Label}
+                                        className="tentang-tech-tag"
+                                    >
+                                        <i
+                                            className={Tag.Icon}
+                                            aria-hidden="true"
+                                        />
                                         {Tag.Label}
                                     </span>
                                 ))}
@@ -98,11 +144,17 @@ export default function Tentang() {
 
                         <div className="tentang-footer-cta">
                             <a href="#alur-pembuatan" className="btn-primary">
-                                <i className="fa-solid fa-play" aria-hidden="true" />
+                                <i
+                                    className="fa-solid fa-play"
+                                    aria-hidden="true"
+                                />
                                 Mulai dari Awal
                             </a>
                             <a href="#praktik" className="btn-ghost">
-                                <i className="fa-solid fa-laptop-code" aria-hidden="true" />
+                                <i
+                                    className="fa-solid fa-laptop-code"
+                                    aria-hidden="true"
+                                />
                                 Langsung Praktik
                             </a>
                         </div>
@@ -119,24 +171,42 @@ export default function Tentang() {
                                 { Number: "8", Label: "Dev Steps" },
                                 { Number: "7", Label: "Deploy Steps" }
                             ].map(Stat => (
-                                <div key={Stat.Label} className="tentang-stat-card">
-                                    <span className="tentang-stat-number">{Stat.Number}</span>
-                                    <span className="tentang-stat-label">{Stat.Label}</span>
+                                <div
+                                    key={Stat.Label}
+                                    className="tentang-stat-card"
+                                >
+                                    <span className="tentang-stat-number">
+                                        {Stat.Number}
+                                    </span>
+                                    <span className="tentang-stat-label">
+                                        {Stat.Label}
+                                    </span>
                                 </div>
                             ))}
                         </div>
 
                         <div className="tentang-phases-card">
-                            <div className="tentang-phases-header">Ringkasan Konten</div>
+                            <div className="tentang-phases-header">
+                                Ringkasan Konten
+                            </div>
                             {PhaseItems.map(Phase => (
-                                <div key={Phase.Name} className="tentang-phase-row">
-                                    <span className="tentang-phase-dot" style={{ background: Phase.Color }} />
-                                    <span className="tentang-phase-name">{Phase.Name}</span>
-                                    <span className="tentang-phase-steps-count">{Phase.Steps}</span>
+                                <div
+                                    key={Phase.Name}
+                                    className="tentang-phase-row"
+                                >
+                                    <span
+                                        className="tentang-phase-dot"
+                                        style={{ background: Phase.Color }}
+                                    />
+                                    <span className="tentang-phase-name">
+                                        {Phase.Name}
+                                    </span>
+                                    <span className="tentang-phase-steps-count">
+                                        {Phase.Steps}
+                                    </span>
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </div>
 
@@ -158,7 +228,9 @@ export default function Tentang() {
                         </div>
                         <div className="tentang-creator-info">
                             <p className="tentang-creator-label">Dibuat Oleh</p>
-                            <h3 className="tentang-creator-name">Teuku Maulana</h3>
+                            <h3 className="tentang-creator-name">
+                                Teuku Maulana
+                            </h3>
                             <div className="tentang-creator-links">
                                 <a
                                     href="https://github.com/MatrixTM26"
@@ -166,14 +238,20 @@ export default function Tentang() {
                                     rel="noopener noreferrer"
                                     className="tentang-creator-link"
                                 >
-                                    <i className="fa-brands fa-github" aria-hidden="true" />
+                                    <i
+                                        className="fa-brands fa-github"
+                                        aria-hidden="true"
+                                    />
                                     MatrixTM26
                                 </a>
                                 <a
                                     href="mailto:anonymous.matrixtm26.dev@gmail.com"
                                     className="tentang-creator-link"
                                 >
-                                    <i className="fa-solid fa-envelope" aria-hidden="true" />
+                                    <i
+                                        className="fa-solid fa-envelope"
+                                        aria-hidden="true"
+                                    />
                                     anonymous.matrixtm26.dev@gmail.com
                                 </a>
                             </div>

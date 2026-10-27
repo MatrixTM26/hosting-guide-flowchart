@@ -3,13 +3,23 @@ import "../styles/Navbar.css";
 
 const NavItems = [
     { Label: "Home", Href: "#home", Icon: "fa-solid fa-house" },
-    { Label: "Alur Pembuatan", Href: "#alur-pembuatan", Icon: "fa-solid fa-diagram-project" },
+    {
+        Label: "Alur Pembuatan",
+        Href: "#alur-pembuatan",
+        Icon: "fa-solid fa-diagram-project"
+    },
     { Label: "Hosting", Href: "#workflow-hosting", Icon: "fa-solid fa-server" },
     { Label: "Praktik", Href: "#praktik", Icon: "fa-solid fa-laptop-code" },
     { Label: "Tentang", Href: "#tentang", Icon: "fa-solid fa-circle-info" }
 ];
 
-const SectionIds = ["tentang", "praktik", "workflow-hosting", "alur-pembuatan", "home"];
+const SectionIds = [
+    "tentang",
+    "praktik",
+    "workflow-hosting",
+    "alur-pembuatan",
+    "home"
+];
 
 export default function Navbar() {
     const [ActiveHref, SetActiveHref] = useState("#home");
@@ -31,7 +41,9 @@ export default function Navbar() {
 
     useEffect(() => {
         document.body.style.overflow = MobileOpen ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
+        return () => {
+            document.body.style.overflow = "";
+        };
     }, [MobileOpen]);
 
     const HandleLink = useCallback(Href => {
@@ -39,12 +51,19 @@ export default function Navbar() {
         SetMobileOpen(false);
     }, []);
 
-    const ToggleMenu = useCallback(() => SetMobileOpen(Previous => !Previous), []);
+    const ToggleMenu = useCallback(
+        () => SetMobileOpen(Previous => !Previous),
+        []
+    );
 
     return (
         <>
             <nav className="desktop-float-dock" aria-label="Navigasi utama">
-                <a href="#home" className="fdock-logo" onClick={() => HandleLink("#home")}>
+                <a
+                    href="#home"
+                    className="fdock-logo"
+                    onClick={() => HandleLink("#home")}
+                >
                     <span className="fdock-logo-mark">WF</span>
                     <span className="fdock-logo-text">WEBFLOW</span>
                 </a>
@@ -55,7 +74,9 @@ export default function Navbar() {
                         href={Item.Href}
                         className={`fdock-item${ActiveHref === Item.Href ? " active" : ""}`}
                         onClick={() => HandleLink(Item.Href)}
-                        aria-current={ActiveHref === Item.Href ? "page" : undefined}
+                        aria-current={
+                            ActiveHref === Item.Href ? "page" : undefined
+                        }
                     >
                         <i className={Item.Icon} aria-hidden="true" />
                         {Item.Label}
@@ -93,7 +114,9 @@ export default function Navbar() {
                         href={Item.Href}
                         className={`dock-item${ActiveHref === Item.Href ? " active" : ""}`}
                         onClick={() => HandleLink(Item.Href)}
-                        aria-current={ActiveHref === Item.Href ? "page" : undefined}
+                        aria-current={
+                            ActiveHref === Item.Href ? "page" : undefined
+                        }
                     >
                         <i className={Item.Icon} aria-hidden="true" />
                         <span className="dock-label">{Item.Label}</span>
